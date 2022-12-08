@@ -1,0 +1,12 @@
+{
+  "name": "GraphQL-Study",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://Lim-Changi@github.com/Lim-Changi/GraphQL-Study.git",
+  "author": "찬기 <limchangi@naver.com>",
+  "license": "MIT",
+  "dependencies": {
+    "apollo-server": "^3.11.1",
+    "graphql": "^16.6.0"
+  }
+}

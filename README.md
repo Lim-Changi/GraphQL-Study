@@ -1,5 +1,4 @@
 # GraphQL
-- - -
 
 ## 목표
 * AWS AppSync 적용을 위한 GraphQL 기본 습득
