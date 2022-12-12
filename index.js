@@ -24,7 +24,7 @@ const typeDefs = gql`
       ): Equipment
   }
   type Team {
-    id: Int
+    id: ID!
     manager: String
     office: String
     extension_number: String
@@ -34,7 +34,7 @@ const typeDefs = gql`
     supplies: [Supply]
   }
   type Equipment {
-    id: String
+    id: ID!
     used_by: String
     count: Int
     new_or_used: EquipmentStatus
