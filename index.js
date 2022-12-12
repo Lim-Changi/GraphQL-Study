@@ -8,6 +8,21 @@ const typeDefs = gql`
     supplies: [Supply]
     team(id: Int): Team
   }
+  type Mutation {
+      deleteEquipment(id: String!): [Equipment]
+      createEquipment(
+          id: String!
+          used_by: String!
+          count: Int!
+          new_or_used: EquipmentStatus!
+      ): Equipment
+      updateEquipment(
+          id: String!,
+          used_by: String,
+          count: Int,
+          new_or_used: String
+      ): Equipment
+  }
   type Team {
     id: Int
     manager: String
@@ -52,16 +67,31 @@ const resolvers = {
         })[0],
         equipments: () => database.equipments,
         supplies: () => database.supplies,
-        // supplies: () => {
-        //     return database.supplies.map(supply => {
-        //         return {
-        //             id: supply.id,
-        //             team: database.teams.find(team =>{
-        //                 return team.id === supply.team
-        //             })
-        //         }
-        //     })
-        // },
+    },
+    Mutation: {
+        deleteEquipment: (parent, args, context, info) => {
+            const deleted = database.equipments
+                .filter((equipment) => {
+                    return equipment.id === args.id
+                })
+            database.equipments = database.equipments
+                .filter((equipment) => {
+                    return equipment.id !== args.id
+                })
+            return deleted
+        },
+        createEquipment: (parent, args, context, info) => {
+            database.equipments.push(args)
+            return args
+        },
+        updateEquipment: (parent, args, context, info) => {
+            return database.equipments.filter((equipment) => {
+                return equipment.id === args.id
+            }).map((equipment) => {
+                Object.assign(equipment, args)
+                return equipment
+            })[0]
+        },
     }
 }
 const server = new ApolloServer({ typeDefs, resolvers }) // 따로 Port를 지정하지 않으면 Apollo Server 내부에서 localhost:4000 으로 서버 시작
