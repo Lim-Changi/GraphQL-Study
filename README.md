@@ -24,3 +24,4 @@
 ### CRUD
 * READ: `query`
 * CREATE, UPDATE, DELETE: `mutation`
+* query 및 mutation 도 graphql resolver 를 어떻게 구현하냐에 따라 조회 및 생성이 마음대로 가능하지만, REST API 의 GET POST 처럼 query mutation 또한 역할에 맞게 사용하는 것이 합의된 규칙이다.
