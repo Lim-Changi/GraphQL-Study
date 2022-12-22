@@ -5,8 +5,12 @@
   "repository": "https://Lim-Changi@github.com/Lim-Changi/GraphQL-Study.git",
   "author": "찬기 <limchangi@naver.com>",
   "license": "MIT",
+  "scripts": {
+    "start": "node index.js"
+  },
   "dependencies": {
     "apollo-server": "^3.11.1",
+    "convert-csv-to-json": "^1.4.0",
     "graphql": "^16.6.0"
   }
 }
