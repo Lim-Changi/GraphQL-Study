@@ -6,10 +6,20 @@
   "author": "찬기 <limchangi@naver.com>",
   "license": "MIT",
   "scripts": {
+    "build:lambda": "sam build -t test-appsync.yml",
     "start": "node index.js"
   },
   "dependencies": {
+    "@aws-sdk/client-lambda": "^3.231.0",
+    "@types/aws-lambda": "^8.10.109",
+    "@types/node": "^18.11.15",
     "apollo-server": "^3.11.1",
+    "aws-sdk": "^2.1275.0",
+    "graphql": "^16.6.0",
+    "reflect-metadata": "^0.1.13"
+  },
+  "devDependencies": {
+    "esbuild": "^0.16.7",
     "convert-csv-to-json": "^1.4.0",
     "graphql": "^16.6.0"
   }

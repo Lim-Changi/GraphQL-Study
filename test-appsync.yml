@@ -1,0 +1,33 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: >-
+  AppSync_Test
+
+Transform:
+  - AWS::Serverless-2016-10-31
+
+Globals:
+  Function:
+    Runtime: nodejs16.x
+    Architectures:
+      - x86_64
+    Timeout: 10
+    MemorySize: 256
+    CodeUri: .
+
+Resources:
+  AppSyncTest:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: index.handler
+      Description: Test Lambda Handler
+      FunctionName: AppSync_Test
+      Tracing: Active
+
+    Metadata: # Manage esbuild properties
+      BuildMethod: esbuild
+      BuildProperties:
+        Minify: false
+        Target: 'es2020'
+        Sourcemap: true
+        EntryPoints:
+          - AppSync/app/test-lambda/index.ts
