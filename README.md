@@ -26,7 +26,8 @@
 * CREATE, UPDATE, DELETE: `mutation`
 * query 및 mutation 도 graphql resolver 를 어떻게 구현하냐에 따라 조회 및 생성이 마음대로 가능하지만, REST API 의 GET POST 처럼 query mutation 또한 역할에 맞게 사용하는 것이 합의된 규칙이다.
 
-### AppSync
+
+## AppSync
 * 참고 - AWS 공식 문서 
   * [1](https://docs.aws.amazon.com/ko_kr/appsync/latest/devguide/what-is-appsync.html) 
   * [2](https://aws.amazon.com/ko/appsync/)
